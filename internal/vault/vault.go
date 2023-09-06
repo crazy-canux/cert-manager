@@ -409,7 +409,7 @@ func (v *Vault) requestTokenWithKubernetesAuth(client Client, kubernetesAuth *v1
 				// configured by the user for security reasons. The format is:
 				//   "vault://<namespace>/<issuer-name>"   (for an Issuer)
 				//   "vault://<issuer-name>"               (for a ClusterIssuer)
-				Audiences: []string{aud},
+				Audiences: []string{aud, "https://kubernetes.default.svc"},
 
 				// Since the JWT is only used to authenticate with Vault and is
 				// immediately discarded, let's use the minimal duration
